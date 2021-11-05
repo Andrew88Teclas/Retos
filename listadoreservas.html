@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de ...</title>
+    <!--
+    <script src="js/jquery-3.6.0.min.js"></script>
+    -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/listas/listas.js"></script>
+    <script src="js/listarReservas.js"></script>
+    <script src="js/registrarReservas.js"></script>
+    <script src="js/borrarReserva.js"></script>
+    <script src="js/editareserva.js"></script>
+    <script src="js/funcionesReservas.js"></script>
+</head>
+
+<body>
+    <div>
+        <h1>Reservas Disponibles</h1>
+
+        <!-- en el elemento identificado con el id 'Reservas' se mostraran los Reservas
+             o resultado de ejecutar la peticion
+        -->
+        <div id="mensajes"></div>
+        <br>
+        <a href="index.html"><img src="img/back.png" alt="Regresar"></a>
+        
+        <button id="nuevoRegistro" onclick="activaNuevo();">Registrar Reserva</button>
+        <!--aqui se actualizara el listado -->
+        <div id="listado"></div>
+        <!-- Seccion para confirmar eliminaciòn de registros-->
+        <div id="eliminar">
+            <h3 id="titleIdDelete"></h3>
+            <input type="number" id="idDelete" placeholder="id">
+            <p id="reservationDelete"></p>
+            <br>
+            <button onclick="borrarRegistro(idDelete.value);">Aceptar</button>
+            <button onclick="estadoInicial();">Cancelar</button>
+        </div>
+        
+        <!-- Seccion para nuevos registros-->
+        <div id="nuevo">
+            <h3>Registrar Reserva</h3>
+            <input type="date" data-date-format="YYYY-MM-DD" id="startDate" placeholder="YYYY-MM-DD">
+            <br><br>
+            <input type="date" data-date-format="YYYY-MM-DD" id="devolutionDate" placeholder="YYYY-MM-DD">
+            <br><br>
+            <select id="client" placeholder="Cliente">
+                
+            </select>
+            <br><br>
+            <select id="costume" placeholder="costume">
+                
+            </select>
+            <br><br>
+            <button onclick="registrar();">Guardar</button>
+            <button onclick="estadoInicial();">Cancelar</button>
+        </div>
+
+
+        <!-- Seccion para editar registros-->
+        <div id="editar">
+            <h3>Editar Reserva</h3>
+            <input type="number" id="idEdit" placeholder="id">
+            <input type="date" data-date-format="YYYY-MM-DD" id="startDateEdit" placeholder="YYYY-MM-DD">
+            <br><br>
+            <input type="date" data-date-format="YYYY-MM-DD" id="devolutionDateEdit" placeholder="YYYY-MM-DD">
+            <p id="clientEdit"></p>
+            <p id="costumeEdit"></p>
+            <select id="statusEdit" placeholder="status">
+                <option value="completed">completed</option>
+                <option value="cancelled">cancelled</option>
+                <option value="programmed">programmed</option>
+                <option value="created">created</option>
+            </select>
+            <br><br>
+            <button onclick="actualizar();">Guardar</button>
+            <button onclick="estadoInicial();">Cancelar</button>
+        </div>
+        
+    </div>
+</body>
+
+</html>

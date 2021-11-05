@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de clientes</title>
+    <!--
+    <script src="js/jquery-3.6.0.min.js"></script>
+    -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/listarclientes.js"></script>
+    <script src="js/registrarclientes.js"></script>
+    <script src="js/editarclientes.js"></script>
+    <script src="js/borrarclientes.js"></script>
+    <script src="js/funcionescliente.js"></script>  
+</head>
+
+<body>
+    <div>
+        <h1>Clientes Disponibles</h1>
+
+        <!-- en el elemento identificado con el id 'mensajes' se mostraran los mensajes
+             o resultado de ejecutar la peticion
+        -->
+        <div id="mensajes"></div>
+        <br>
+        <a href="index.html"><img src="img/back.png" alt="Regresar"></a>
+        
+        <button id="nuevoRegistro" onclick="activaNuevo();">Registrar Cliente</button>
+        <!--aqui se actualizara el listado -->
+        <div id="listado"></div>
+
+        <!-- Seccion para nuevos registros-->
+        <div id="nuevo">
+            <h3>Registrar Cliente</h3>
+            <input type="text" id="name" placeholder="Nombre" onkeydown="upperCaseF(this)">
+            <br><br>
+            <input type="email" id="email" placeholder="Correo Electrónico">
+            <br><br>
+            <input type="password" id="password" placeholder="Contraseña">
+            <br><br>
+            <input type="number" id="age" placeholder="Edad">
+            <br><br>
+            <button onclick="registrar();">Guardar</button>
+            <button onclick="estadoInicial();">Cancelar</button>
+        </div>
+
+
+        <!-- Seccion para editar registros-->
+        <div id="editar">
+            <h3>Editar Cliente</h3>
+            <input type="text" id="idEdit" placeholder="id">
+            <input type="text" id="nameEdit" placeholder="name">
+            <br><br>
+            <input type="text" id="emailEdit" placeholder="email">
+            <br><br>
+            <input type="password" id="passwordEdit" placeholder="password">
+            <br><br>
+            <input type="number" id="ageEdit" placeholder="age">
+            <br><br>
+            <button onclick="actualizar();">Guardar</button>
+            <button onclick="estadoInicial();">Cancelar</button>
+        </div>
+
+        <!-- Seccion para confirmar eliminaciòn de registros-->
+        <div id="eliminar">
+            <h3 id="titleIdDelete"></h3>
+            <input type="number" id="idDelete" placeholder="id">
+            <p id="clientDelete"></p>
+            <br>
+            <button onclick="borrarRegistro(idDelete.value);">Aceptar</button>
+            <button onclick="estadoInicial();">Cancelar</button>
+        </div>
+        
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disfraz</title>
+    <!--
+    <script src="js/jquery-3.6.0.min.js"></script>
+    -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/listar.js"></script>
+    <script src="js/registrar.js"></script>
+    <script src="js/editar.js"></script>
+    <script src="js/borrar.js"></script>
+    <script src="js/funciones.js"></script>
+    <script src="js/listas/listas.js"></script>
+</head>
+
+<body>
+    <div>
+        <h1>Disfraces Disponibles</h1>
+
+        <!-- en el elemento identificado con el id 'mensajes' se mostraran los mensajes
+             o resultado de ejecutar la peticion
+        -->
+        <div id="mensajes"></div>
+        <br>
+        <a href="index.html"><img src="img/back.png" alt="Regresar"></a>
+        
+        <button id="nuevoRegistro" onclick="activaNuevo();">Registrar Disfraz</button>
+        <!--aqui se actualizara el listado -->
+        <div id="listado"></div>
+
+        <!-- Seccion para nuevos registros-->
+        <div id="nuevo">
+            <h3>Registrar Disfraz</h3>
+            <input type="text" id="name" placeholder="Nombre" onkeydown="upperCaseF(this)">
+            <br><br>
+            <input type="text" id="brand" placeholder="Marca" onkeydown="upperCaseF(this)">
+            <br><br>
+            <input type="number" id="year" placeholder="Año">
+            <br><br>
+            <select id="category" placeholder="Categoria">
+                
+            </select>
+            <br><br>
+            <textarea id="description" placeholder="Descripción" rows="4" cols="50"  onkeydown="upperCaseF(this)"></textarea>
+            <br><br>
+            <button onclick="registrar();">Guardar</button>
+            <button onclick="estadoInicial();">Cancelar</button>
+        </div>
+
+
+        <!-- Seccion para editar registros-->
+        <div id="editar">
+            <h3>Editar Disfraz</h3>
+            <input type="text" id="idEdit" placeholder="name">
+            <br><br>
+            <input type="text" id="nameEdit" placeholder="name" onkeydown="upperCaseF(this)">
+            <br><br>
+            <input type="text" id="brandEdit" placeholder="brand" onkeydown="upperCaseF(this)">
+            <br><br>
+            <input type="number" id="yearEdit" placeholder="year">
+            <br><br>
+            <p id="categoryEdit"></p>
+            <br><br>
+            <textarea id="descriptionEdit" placeholder="Descripción" rows="4" cols="50"  onkeydown="upperCaseF(this)"></textarea>
+            <br><br>
+            <button onclick="actualizar();">Guardar</button>
+            <button onclick="estadoInicial();">Cancelar</button>
+        </div>
+        
+        <!-- Seccion para confirmar eliminaciòn de registros-->
+        <div id="eliminar">
+            <h3 id="titleIdDelete"></h3>
+            <input type="number" id="idDelete" placeholder="id">
+            <p id="costumeDelete"></p>
+            <br>
+            <button onclick="borrarRegistro(idDelete.value);">Aceptar</button>
+            <button onclick="estadoInicial();">Cancelar</button>
+        </div>
+    </div>
+</body>
+
+</html>
